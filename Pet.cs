@@ -13,10 +13,10 @@ namespace template_csharp_virtual_pet
         //testing 
         public string PetNaming { get; set; }
         public string PetSpecies { get; set; }
+        public double PetHealth { get; set; }
         public double PetHunger { get; set; }
         public double PetFun { get; set; } // Instead of using boredom, I think the user will understand fun going lower instead of bordom getting higher.
         // if fun is below  30 the user risk mental health
-        public double PetHealth { get; set; }
 
 
 
@@ -45,49 +45,56 @@ namespace template_csharp_virtual_pet
             return this.PetNaming = petnameing;
         }
 
-        public void Pet_species(int speciesInput) //!!!
+        public string Pet_species()  // MAKE A LOOP FOR THIS DARIUS!!!
         {
-            string speciesType = "";
-            
+            Console.WriteLine(" 1.Water\n 2.Earth \n 3.FIre");
+            int speciesInput = Convert.ToInt32(Console.ReadLine());
+            string petspecies = "";
 
             if (speciesInput == 1)
             {
-                speciesType = "Water";
-                Console.WriteLine(" Species is " + speciesType); //--- test case To make sure everthing working.
-               
+
+                return this.PetSpecies = petspecies = "Water";
+
             }
             else if (speciesInput == 2)
             {
-                speciesType = "Earth";
-                Console.WriteLine(" Species is " + speciesType);
-              
+
+                return this.PetSpecies = petspecies = "Earth";
+
             }
             else if (speciesInput == 3)
             {
-                speciesType = "Fire";
-                Console.WriteLine(" Species is " + speciesType);
-              
+
+                return this.PetSpecies = petspecies = "Fire";
+
             }
-            //else if (speciesInput == 4)
-            //{
-            //    //PLACEHOLDER
-            //    //// MAKE A LOOP FOR THIS DARIUS!!!
-            //    //Console.WriteLine("Water. Earth. Fire. Air. Long ago, the four nations lived together in harmony.\nThen everything changed when the Fire Nation attacked. ");
-            //    //Console.WriteLine("Only the Avatar, master of all four elements, could stop them. But when the world needed him most, he vanished. ");
-            //    //Console.WriteLine("\nA hundred years passed and my brother and I discovered the new Avatar, an airbender named " + Pet_name(name1) + " Aang,\nand although his airbending skills are great, he still has a lot to learn before he's ready to save anyone.");
-            //    //Console.WriteLine("\n But I believe Aang can save the world.");
-            //    //// easter egg if the user input 4 -- avater the last airbander
-            //}
-            else
+            else if (speciesInput == 4)
             {
 
-                Console.WriteLine("wait 5 sec and pls enter a vaild input");
-                Thread.Sleep(5000);
-                Program.gameSetupspecies();
-                
+                Console.WriteLine("Water. Earth. Fire. Air. Long ago, the four nations lived together in harmony.\nThen everything changed when the Fire Nation attacked. ");
+                Console.WriteLine("Only the Avatar, master of all four elements, could stop them. But when the world needed him most, he vanished. ");
+                Console.WriteLine("\nA hundred years passed and my brother and I discovered the new Avatar, an airbender named " + this.PetNaming + " Aang,\nand although his airbending skills are great, he still has a lot to learn before he's ready to save anyone.");
+                Console.WriteLine("\nBut I believe Aang can save the world.");
+                Console.WriteLine("\n\nPress any key.....");
+                Console.ReadKey();
+
+                // easter egg if the user input 4 -- avater the last airbander
+                return this.PetSpecies = petspecies = "Air";
+            }
+            else
+            {
+                return "not working"; // fix this do recusion/ a loop / or last resort try to call game and look for pet sepcies 
             }
 
+        }
+        public double Pet_health()
+        {
 
+            double maxhealth = 100;
+            double pethealth = maxhealth;
+
+            return this.PetHealth = pethealth;
         }
     }
 }
