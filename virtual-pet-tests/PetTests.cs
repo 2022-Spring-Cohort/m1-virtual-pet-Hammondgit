@@ -27,61 +27,61 @@ namespace virtual_pet_tests
         [Test]
         public void Pet_Should_Have_Name()
         {
-            // testPet.Name = "Pet Name"; 
+            testPet.PetNaming = "Pet Name";
 
-            // Assert.Equal("Pet Name", testPet.Name);
+             Assert.Equals("Pet Name", testPet.PetNaming);
         }
 
         [Test]
         public void SetName_Should_Assign_Pet_Name_Property()
         {
-            // testPet.Name("Fluffy");
+             testPet.Pet_name();
 
-            // Assert.Equal("Fluffy", testPet.Name);
+             Assert.Equals("Fluffy", testPet.PetNaming);
         }
 
         [Test]
         public void GetName_Should_Get_Pet_Name_Value()
         {
-            // testPet.SetName("Fido");
+             testPet.Pet_name();
 
-            // string testPetName = testPet.GetName();
+             string testPetName = testPet.PetNaming;
 
-            // Assert.Equal("Fido", testPetName);
+            Assert.Equals("Fido", testPetName);
         }
 
         [Test]
         public void Pet_Should_Have_Species()
         {
-            // testPet.Species = "Pet Species";
+              testPet.PetSpecies = "Pet Species";
 
-            // Assert.Equal("Pet Species", testPet.Species);
+             Assert.Equals("Pet Species", testPet.PetSpecies);
         }
 
         [Test]
         public void SetSpecies_Should_Assign_Pet_Species_Property()
         {
-            // testPet.SetSpecies("Cat");
+              testPet.Pet_species();
 
-            // Assert.Equal("Cat", testPet.Species);
+             Assert.Equals("Cat", testPet.PetSpecies);
         }
 
         [Test]
         public void GetSpecies_Should_Get_Pet_Species_Value()
         {
-            // testPet.SetSpecies("Dog");
+            testPet.Pet_species();
 
-            // string testPetSpecies = testPet.GetSpecies();
+            string testPetSpecies = testPet.PetSpecies;
 
-            // Assert.Equal("Dog", testPetSpecies);
+            Assert.Equals("Dog", testPetSpecies);
         }
 
         [Test]
         public void Pet_Should_Have_Hunger()
         {
-            // testPet.Hunger = 100;
+               testPet.PetHunger = 100;
 
-            // Assert.Equal(100, testPet.Hunger);
+               Assert.Equals(100, testPet.PetHunger);
         }
 
         [Test]

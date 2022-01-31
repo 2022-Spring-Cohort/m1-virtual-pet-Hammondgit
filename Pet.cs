@@ -20,19 +20,16 @@ namespace template_csharp_virtual_pet
         public double PetFun { get; set; } // Instead of using boredom, I think the user will understand fun going lower instead of bordom getting higher.
                                            // if fun is below  30 the user risk mental health
 
+       // List<Pet> petList = new List<Pet>();
+
+
+
+
+
         public Pet()
         {
         }
 
-        public Pet(string petnaming, string petspecies, double pethealth, double pethunger, double petfun)
-        {
-            this.PetNaming = petnaming;
-            this.PetSpecies = petspecies;
-            this.PetHealth = pethealth;
-            this.PetHunger = pethunger;
-            this.PetFun = petfun;
-
-        }
 
 
 

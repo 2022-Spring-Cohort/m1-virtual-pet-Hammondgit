@@ -10,16 +10,10 @@ namespace template_csharp_virtual_pet
     {
 
 
-         List<Pet> petList = new List<Pet>();
-        public string petnaming { get; set; }
-        public string petspecies { get; set; }
 
-        public double pethealth { get; set; }
 
-        public double pethunger { get; set; }
-
-        public double petfun { get; set; }
-
+        List<Pet> petList = new List<Pet>();
+        Pet incomingPets = new Pet();
 
         public void shelter_menu()
         {
@@ -37,7 +31,7 @@ namespace template_csharp_virtual_pet
             switch (userInput)
             {
                 case 1:
-                    Add_pets( petnaming,  petspecies, pethealth, pethunger,  petfun);
+                    Add_pets();
                     break;
                 case 2:
 
@@ -50,16 +44,29 @@ namespace template_csharp_virtual_pet
 
 
 
-        public void Add_pets(string petnaming, string petspecies, double pethealth, double pethunger, double petfun)
+        public void Add_pets()
         {
+            
 
-            Pet incomingPets = new Pet(petnaming, petspecies, pethealth,  pethunger,  petfun);
             petList.Add(incomingPets);
-            Console.WriteLine(petList);
-            Console.WriteLine("notworking");
+            Console.WriteLine(petList.Count); // testing
             Console.ReadKey();
         }
 
+        public void adopt_pets()
+        {
+            // ask the user what pet they want 
+
+
+
+            // someh0w show a list of pets???
+
+
+            // 
+
+
+
+        }
 
 
     }

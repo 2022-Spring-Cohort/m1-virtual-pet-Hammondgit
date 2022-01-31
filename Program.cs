@@ -60,51 +60,6 @@ namespace template_csharp_virtual_pet
 
             Program.game();
 
-            aTimer = new System.Timers.Timer();
-            aTimer.Interval = 5000;
-            aTimer.Elapsed += ATimer_Elapsed;
-            aTimer.Enabled = true;
-            aTimer.AutoReset = true;
-            aTimer.Start();
-
-
-            Console.Clear();
-            Console.WriteLine("Health: " + virtualPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t\t Name:" + virtualPet.PetNaming);
-            Console.WriteLine("Hunger: " + virtualPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t\t Species:" + virtualPet.PetSpecies);
-            Console.WriteLine("Fun: " + virtualPet.PetFun);
-
-
-            string[] choice = new string[4] { "\n\n\t\t\t\t\t\t1.Interact with pet", "\t\t\t\t\t\t2.Feed pet", "\t\t\t\t\t\t3.Take to doctor", "\t\t\t\t\t\t5.Exit game" };
-
-            for (int count = 0; count < choice.Length; count++)
-            {
-                Console.WriteLine(choice[count]);
-            }
-
-
-            int userInput = Convert.ToInt32(Console.ReadLine());
-
-            switch (userInput)
-            {
-                case 1:
-                    virtualPet.Pet_interact();
-                    break;
-                case 2:
-                    virtualPet.Pet_feed();
-                    break;
-                case 3:
-                    virtualPet.Pet_medicine();
-                    break;
-                case 4:
-                    shelterPet.shelter_menu();
-                    break;
-                case 5:
-                    exit_Game();
-                    break;
-            }
-
-
-
 
         }
 
