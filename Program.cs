@@ -1,17 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
+using System.Timers;
 
 namespace template_csharp_virtual_pet
 {
     class Program
     {
+        private static System.Timers.Timer aTimer;
+        static Pet virtualPet = new Pet();
+       static shelter shelterPet = new shelter();
+
+
         static void Main(string[] args)
         {
 
-            
 
 
-            // titlte 
+
+            // Title 
             Console.WriteLine("\t\t\t\t\t\tWelcome to\n\n\t\t\t\t\t\tPOKNOMMMM!!!\n\t\t\t\t\t\tForm ther very not so copyrited game... ");
 
             //TEXT FOR THE MEAN MENU
@@ -22,44 +29,146 @@ namespace template_csharp_virtual_pet
             switch (menuInput)
             {
                 case 1:
-                    game();
+                    game_Setup();
                     break;
 
                 case 0:
-                    exitGame(); // EXIT THE GAME ay any time. Thinking about making a utilitie class and putting it in it.
+                    exit_Game(); // EXIT THE GAME ay any time. Thinking about making a utilitie class and putting it in it.
                     break;
             }
 
-            static void game()
+        }
+
+        static void game_Setup()
+        {
+            // Geting players name  
+            Console.Clear();
+
+            Console.WriteLine("Welcome to the game");
+            Console.WriteLine("I hope you enjoy the expranicne ");
+
+            virtualPet.Pet_name();
+
+            // Getting players species    
+            Console.Clear();
+
+            virtualPet.Pet_species();
+
+            virtualPet.Pet_health();
+            virtualPet.Pet_hunger();
+            virtualPet.Pet_fun();
+
+            Program.game();
+
+            aTimer = new System.Timers.Timer();
+            aTimer.Interval = 5000;
+            aTimer.Elapsed += ATimer_Elapsed;
+            aTimer.Enabled = true;
+            aTimer.AutoReset = true;
+            aTimer.Start();
+
+
+            Console.Clear();
+            Console.WriteLine("Health: " + virtualPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t\t Name:" + virtualPet.PetNaming);
+            Console.WriteLine("Hunger: " + virtualPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t\t Species:" + virtualPet.PetSpecies);
+            Console.WriteLine("Fun: " + virtualPet.PetFun);
+
+
+            string[] choice = new string[4] { "\n\n\t\t\t\t\t\t1.Interact with pet", "\t\t\t\t\t\t2.Feed pet", "\t\t\t\t\t\t3.Take to doctor", "\t\t\t\t\t\t5.Exit game" };
+
+            for (int count = 0; count < choice.Length; count++)
             {
-                Pet virtualPet = new Pet();
+                Console.WriteLine(choice[count]);
+            }
 
 
-                // Geting players name  
-                Console.Clear();
-                Console.WriteLine("Welcome to the game");
-                Console.WriteLine("I hope you enjoy the expranicne ");
-                string userName = virtualPet.Pet_name();
+            int userInput = Convert.ToInt32(Console.ReadLine());
 
-
-                // Getting players species    
-                Console.Clear();
-                Console.WriteLine("what species is your pet");
-               string userSpecies = virtualPet.Pet_species();
-
-
-                double userHealth = virtualPet.Pet_health();
-                Console.Clear();
-                Console.WriteLine("Health: "  + virtualPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t\t Name: " + userName);
-                Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t\t\t Species: " + userSpecies);
-   
+            switch (userInput)
+            {
+                case 1:
+                    virtualPet.Pet_interact();
+                    break;
+                case 2:
+                    virtualPet.Pet_feed();
+                    break;
+                case 3:
+                    virtualPet.Pet_medicine();
+                    break;
+                case 4:
+                    shelterPet.shelter_menu();
+                    break;
+                case 5:
+                    exit_Game();
+                    break;
             }
 
 
 
 
         }
-        static void exitGame() // need to test this!!!!!!
+
+
+
+
+        public static void game()
+        {
+
+            aTimer = new System.Timers.Timer();
+            aTimer.Interval = 5000;
+            aTimer.Elapsed += ATimer_Elapsed;
+            aTimer.Enabled = true;
+            aTimer.AutoReset = true;
+            aTimer.Start();
+
+         
+            Console.Clear();
+            Console.WriteLine("Health: " + virtualPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t\t Name:" + virtualPet.PetNaming);
+            Console.WriteLine("Hunger: " + virtualPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t\t Species:" + virtualPet.PetSpecies);
+            Console.WriteLine("Fun: " + virtualPet.PetFun);
+
+     
+            string[] choice = new string[5] { "\n\n\t\t\t\t\t\t1.Interact with pet", "\t\t\t\t\t\t2.Feed pet", "\t\t\t\t\t\t3.Take to doctor", "\t\t\t\t\t\t4.Vist shelter", "\t\t\t\t\t\t5.Exit game" };
+
+            for (int count = 0; count < choice.Length; count++)
+            {
+                Console.WriteLine(choice[count]);
+            }
+
+
+            int userInput = Convert.ToInt32(Console.ReadLine());
+
+            switch (userInput)
+            {
+                case 1:
+                    virtualPet.Pet_interact();
+                    break;
+                case 2:
+                    virtualPet.Pet_feed();
+                    break;
+                case 3:
+                    virtualPet.Pet_medicine();
+                    break;
+                case 4:
+                    shelterPet.shelter_menu();
+                    break;
+                case 5:
+                    exit_Game();
+                    break;
+            }
+        }
+
+
+        private static void ATimer_Elapsed(object sender, ElapsedEventArgs e) // ask if ther a way to make it show in real time
+        {
+            virtualPet.PetHealth--;
+            virtualPet.PetHunger--;
+            virtualPet.PetFun--;
+        }
+
+
+
+        static void exit_Game() // need to test this!!!!!!
         {
             Console.Clear();
             Console.WriteLine("Hope you enjoy the game ");
