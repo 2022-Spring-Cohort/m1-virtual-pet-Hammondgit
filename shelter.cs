@@ -9,16 +9,16 @@ namespace template_csharp_virtual_pet
     class shelter
     {
         List<Pet> petList = new List<Pet>();
-        Pet addPets = new Pet();
+      //  Pet addPets = new Pet();
 
 
-        public void Add_pets()
+        public void Add_pets(Pet addPet)
         {
 
 
-            petList.Add(addPets);
-            Program.game_Setup();// make a if statment to see if list already has pets or ask them if they like to adopt one.
-            Console.ReadKey();
+            petList.Add(addPet);
+            
+            
 
 
 

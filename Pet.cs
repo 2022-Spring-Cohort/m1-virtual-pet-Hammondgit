@@ -20,7 +20,7 @@ namespace template_csharp_virtual_pet
         public double PetFun { get; set; } // Instead of using boredom, I think the user will understand fun going lower instead of bordom getting higher.
                                            // if fun is below  30 the user risk mental health
 
-       // List<Pet> petList = new List<Pet>();
+        // List<Pet> petList = new List<Pet>();
 
 
 
@@ -28,6 +28,10 @@ namespace template_csharp_virtual_pet
 
         public Pet()
         {
+
+            this.PetFun = 100;
+            this.PetHunger = 100;
+            this.PetHealth = 100;
         }
 
 
@@ -94,26 +98,7 @@ namespace template_csharp_virtual_pet
 
 
 
-
-
-        public void Pet_health()
-        {
-
-            this.PetHealth = 100;
-        }
-
-
-        public void Pet_hunger()
-        {
-
-            this.PetHunger = 100;
-        }
-
-        public void Pet_fun()
-        {
-
-            this.PetFun = 100;
-        }
+     
 
         public void Pet_medicine()
         {
@@ -132,11 +117,11 @@ namespace template_csharp_virtual_pet
             if (input == 1)
             {
                 this.PetHealth += 25;
-                Program.game();
+          
             }
             else
             {
-                Program.game();
+            
             }
         }
 
@@ -157,17 +142,17 @@ namespace template_csharp_virtual_pet
             if (input == 1)
             {
                 this.PetFun += 10;
-                Program.game();
+          
             }
             else if (input == 2)
             {
                 this.PetFun += 15;
-                Program.game();
+        
             }
             else if (input == 3)
             {
                 this.PetFun += 20;
-                Program.game();
+       
             }
         }
 
@@ -188,17 +173,17 @@ namespace template_csharp_virtual_pet
             if (input == 1)
             {
                 this.PetHunger += 5;
-                Program.game();
+           
             }
             else if (input == 2)
             {
                 this.PetHunger += 10;
-                Program.game();
+              
             }
             else if (input == 3)
             {
                 this.PetHunger += 20;
-                Program.game();
+              
             }
         }
 
