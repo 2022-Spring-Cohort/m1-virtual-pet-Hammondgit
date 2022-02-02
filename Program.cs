@@ -120,12 +120,12 @@ namespace template_csharp_virtual_pet
                         break;
                     case 6:
                         Game = false;
-                        exit_Game();
+                       
                         break;
                 }
 
-
           }
+            exit_Game();
         }
 
 
