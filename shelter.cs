@@ -9,7 +9,8 @@ namespace template_csharp_virtual_pet
     class shelter
     {
         List<Pet> petList = new List<Pet>();
-      //  Pet addPets = new Pet();
+        static Pet virtualPet = new Pet();
+        
 
 
         public void Add_pets(Pet addPet)
@@ -32,18 +33,22 @@ namespace template_csharp_virtual_pet
 
             // someh0w show a list of pets???
             Console.WriteLine("Here a list of pets");
-        
 
-          //  string hi = "hi"; // wanted to see if it was possble to track current pet names. 
+
+            int I = 1;
             int count = 1;
+           
             foreach (Pet pet in petList)
             {
-                
-                Console.WriteLine(count + ": "+ pet );
+                virtualPet = petList[I - 1];
+                Console.WriteLine(count + ". " +virtualPet.PetNaming+ ": Health:"+ virtualPet.PetHealth + " , Hunger:" + virtualPet.PetHunger + " , Fun:" + virtualPet.PetFun);
                 count++;
+                I++;
+
             }
 
-           int userInput = Convert.ToInt32(Console.ReadLine());
+            int userInput = Convert.ToInt32(Console.ReadLine());
+
 
             return petList[userInput - 1];
           

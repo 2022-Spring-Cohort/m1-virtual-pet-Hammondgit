@@ -47,6 +47,7 @@ namespace template_csharp_virtual_pet
 
         public void Pet_species()
         {
+            Console.Clear();
             Console.WriteLine("what species is your pet");
             Console.WriteLine(" 1.Water\n 2.Earth \n 3.FIre");
             int speciesInput = Convert.ToInt32(Console.ReadLine());
@@ -92,7 +93,7 @@ namespace template_csharp_virtual_pet
 
         public void call_Species_again()
         {
-            Console.WriteLine("Invaid input.Try again!");
+            Console.WriteLine("Invaid input. Try again!");
             Pet_species();
         }
 

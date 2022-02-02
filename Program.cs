@@ -52,13 +52,13 @@ namespace template_csharp_virtual_pet
             return virtualPet;
         }
 
-
+   
 
         public static void game()
         {
            bool Game = true;
-          while (Game) 
-          { 
+            while (Game)
+            {
 
                 aTimer = new System.Timers.Timer();
                 aTimer.Interval = 5000;
@@ -74,7 +74,7 @@ namespace template_csharp_virtual_pet
                 Console.WriteLine("Fun: " + virtualPet.PetFun);
 
 
-                string[] choice = new string[7] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to doctor", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Get a pet from the shelter", "\t\t\t\t\t\t7.Exit game "};
+                string[] choice = new string[7] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to doctor", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t0.Exit game " };
 
                 for (int count = 0; count < choice.Length; count++)
                 {
@@ -84,17 +84,17 @@ namespace template_csharp_virtual_pet
 
                 int userInput = Convert.ToInt32(Console.ReadLine());
 
-             
+
                 switch (userInput)
                 {
                     case 1:
                         createPet();
                         break;
                     case 2:
-                         virtualPet.Pet_interact();
+                        virtualPet.Pet_interact();
                         break;
                     case 3:
-                         virtualPet.Pet_feed();
+                        virtualPet.Pet_feed();
                         break;
                     case 4:
                         virtualPet.Pet_medicine();
@@ -108,13 +108,14 @@ namespace template_csharp_virtual_pet
                     case 6:
                         virtualPet = shelterPet.adopt_pets();
                         break;
-                    case 7:
+
+                    case 0:
                         Game = false;
-                        
+
                         break;
                 }
 
-          }
+            }
 
             exit_Game();
         }
