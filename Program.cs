@@ -9,7 +9,7 @@ namespace template_csharp_virtual_pet
     {
         private static System.Timers.Timer aTimer;
         static Pet virtualPet = new Pet();
-       static shelter shelterPet = new shelter();
+        static shelter shelterPet = new shelter();
 
 
         static void Main(string[] args)
@@ -39,7 +39,7 @@ namespace template_csharp_virtual_pet
 
         }
 
-        static void game_Setup()
+       public static void game_Setup()
         {
             // Geting players name  
             Console.Clear();
@@ -60,7 +60,7 @@ namespace template_csharp_virtual_pet
 
             Program.game();
 
-
+          //  return virtualPet;
         }
 
 
@@ -68,50 +68,98 @@ namespace template_csharp_virtual_pet
 
         public static void game()
         {
+           Boolean Game = true;
+          while (Game) 
+          { 
 
-            aTimer = new System.Timers.Timer();
-            aTimer.Interval = 5000;
-            aTimer.Elapsed += ATimer_Elapsed;
-            aTimer.Enabled = true;
-            aTimer.AutoReset = true;
-            aTimer.Start();
-
-         
-            Console.Clear();
-            Console.WriteLine("Health: " + virtualPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t\t Name:" + virtualPet.PetNaming);
-            Console.WriteLine("Hunger: " + virtualPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t\t Species:" + virtualPet.PetSpecies);
-            Console.WriteLine("Fun: " + virtualPet.PetFun);
-
-     
-            string[] choice = new string[5] { "\n\n\t\t\t\t\t\t1.Interact with pet", "\t\t\t\t\t\t2.Feed pet", "\t\t\t\t\t\t3.Take to doctor", "\t\t\t\t\t\t4.Vist shelter", "\t\t\t\t\t\t5.Exit game" };
-
-            for (int count = 0; count < choice.Length; count++)
-            {
-                Console.WriteLine(choice[count]);
-            }
+                aTimer = new System.Timers.Timer();
+                aTimer.Interval = 5000;
+                aTimer.Elapsed += ATimer_Elapsed;
+                aTimer.Enabled = true;
+                aTimer.AutoReset = true;
+                aTimer.Start();
 
 
-            int userInput = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Health: " + virtualPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t\t Name:" + virtualPet.PetNaming);
+                Console.WriteLine("Hunger: " + virtualPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t\t Species:" + virtualPet.PetSpecies);
+                Console.WriteLine("Fun: " + virtualPet.PetFun);
 
-            switch (userInput)
-            {
-                case 1:
-                    virtualPet.Pet_interact();
-                    break;
-                case 2:
-                    virtualPet.Pet_feed();
-                    break;
-                case 3:
-                    virtualPet.Pet_medicine();
-                    break;
-                case 4:
-                    shelterPet.shelter_menu();
-                    break;
-                case 5:
-                    exit_Game();
-                    break;
-            }
+
+                string[] choice = new string[6] { "\n\n\t\t\t\t\t\t1.Interact with pet", "\t\t\t\t\t\t2.Feed pet", "\t\t\t\t\t\t3.Take to doctor", "\t\t\t\t\t\t4.Add pet to shelter", "\t\t\t\t\t\t5.Adopt pet to shelter", "\t\t\t\t\t\t6.Exit game " };
+
+                for (int count = 0; count < choice.Length; count++)
+                {
+                    Console.WriteLine(choice[count]);
+                }
+
+
+                int userInput = Convert.ToInt32(Console.ReadLine());
+
+              
+
+
+
+                switch (userInput)
+                {
+                    case 1:
+                        virtualPet.Pet_interact();
+                        break;
+                    case 2:
+                        virtualPet.Pet_feed();
+                        break;
+                    case 3:
+                        virtualPet.Pet_medicine();
+                        break;
+                    case 4:
+                        shelterPet.Add_pets();
+                        break;
+                    case 5:
+                   virtualPet =  shelterPet.adopt_pets();
+
+                        break;
+                    case 6:
+                        Game = false;
+                        exit_Game();
+                        break;
+                }
+
+
+          }
         }
+
+
+
+        //static void shelter_menu()
+        //{
+        //    Console.Clear();
+        //    string[] choice = new string[3] { "\n\n\t\t\t\t\t\t1.Add pet into shelter? ", "\t\t\t\t\t\t2.Adopt Pet? ", "\t\t\t\t\t\t3.Go Back" };
+
+        //    for (int count = 0; count < choice.Length; count++)
+        //    {
+        //        Console.WriteLine(choice[count]);
+        //    }
+
+
+        //    int userInput = Convert.ToInt32(Console.ReadLine());
+
+        //    switch (userInput)
+        //    {
+        //        case 1:
+        //            shelterPet.Add_pets();
+        //            break;
+        //        case 2:
+        //            shelterPet.adopt_pets();
+        //            break;
+        //        case 3:
+        //            game();
+        //            break;
+
+
+        //    }
+
+        //}
+
 
 
         private static void ATimer_Elapsed(object sender, ElapsedEventArgs e) // ask if ther a way to make it show in real time

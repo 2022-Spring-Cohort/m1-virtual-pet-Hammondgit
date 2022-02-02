@@ -8,65 +8,49 @@ namespace template_csharp_virtual_pet
 {
     class shelter
     {
-
-
-
-
         List<Pet> petList = new List<Pet>();
-        Pet incomingPets = new Pet();
-
-        public void shelter_menu()
-        {
-            Console.Clear();
-            string[] choice = new string[2] { "\n\n\t\t\t\t\t\t1.Add pet into shelter? ", "\t\t\t\t\t\t2.Adopt Pet? " };
-
-            for (int count = 0; count < choice.Length; count++)
-            {
-                Console.WriteLine(choice[count]);
-            }
-
-
-            int userInput = Convert.ToInt32(Console.ReadLine());
-
-            switch (userInput)
-            {
-                case 1:
-                    Add_pets();
-                    break;
-                case 2:
-
-                    break;
-
-            }
-
-        }
-
-
+        Pet addPets = new Pet();
 
 
         public void Add_pets()
         {
-            
 
-            petList.Add(incomingPets);
-            Console.WriteLine(petList.Count); // testing
+
+            petList.Add(addPets);
+            Program.game_Setup();// make a if statment to see if list already has pets or ask them if they like to adopt one.
             Console.ReadKey();
+
+
+
         }
 
-        public void adopt_pets()
+        public Pet adopt_pets()
         {
+            Console.Clear();
             // ask the user what pet they want 
-
-
+            Console.WriteLine("Our shelter has this many pets:" + petList.Count);
 
             // someh0w show a list of pets???
+            Console.WriteLine("Here a list of pets");
+        
 
+          //  string hi = "hi"; // wanted to see if it was possble to track current pet names. 
+            int count = 1;
+            foreach (Pet pet in petList)
+            {
+                
+                Console.WriteLine(count + ": "+ pet );
+                count++;
+            }
 
-            // 
+           int userInput = Convert.ToInt32(Console.ReadLine());
 
+            return petList[userInput - 1];
+          
 
 
         }
+
 
 
     }
