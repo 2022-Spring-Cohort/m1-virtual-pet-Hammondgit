@@ -74,7 +74,7 @@ namespace template_csharp_virtual_pet
                 Console.WriteLine("Fun: " + virtualPet.PetFun);
 
 
-                string[] choice = new string[7] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to doctor", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t0.Exit game " };
+                string[] choice = new string[7] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to the vet", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t0.Exit game " };
 
                 for (int count = 0; count < choice.Length; count++)
                 {

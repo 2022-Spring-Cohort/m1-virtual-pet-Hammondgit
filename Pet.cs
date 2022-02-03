@@ -104,7 +104,7 @@ namespace template_csharp_virtual_pet
         public void Pet_medicine()
         {
             Console.Clear();
-            Console.WriteLine("Current health: " + this.PetHealth);
+            Console.WriteLine("Current health: " + this.PetHealth );
             Console.WriteLine("Here a list of medicine for your pet");
             string[] Meds = new string[2] { "1.Pills", "2.Go back" };
 
@@ -129,7 +129,7 @@ namespace template_csharp_virtual_pet
         public void Pet_interact()
         {
             Console.Clear();
-            Console.WriteLine("Current fun: " + this.PetFun);
+            Console.WriteLine("Current fun: " + this.PetFun + "Current Pet: " + this.PetNaming);
             Console.WriteLine("Interact with your pet");
             string[] Fun = new string[3] { "1.Headpat", "2.Go for a walk", "3.Playing fetch" };
 
