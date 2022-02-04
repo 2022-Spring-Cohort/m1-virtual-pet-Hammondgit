@@ -36,6 +36,57 @@ namespace template_csharp_virtual_pet
 
 
 
+        //public void Pet_menu() 
+        //{
+
+        //    string[] choice = new string[8] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to the vet", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t7.switch to robotic pet", "\t\t\t\t\t\t0.Exit game " };
+
+        //    for (int count = 0; count < choice.Length; count++)
+        //    {
+        //        Console.WriteLine(choice[count]);
+        //    }
+
+
+        //    int userInput = Convert.ToInt32(Console.ReadLine());
+
+
+        //    switch (userInput)
+        //    {
+        //        case 1:
+        //            createPet();
+        //            break;
+        //        case 2:
+        //            Pet_interact();
+        //            break;
+        //        case 3:
+        //            Pet_feed();
+        //            break;
+        //        case 4:
+        //            Pet_medicine();
+
+        //            break;
+        //        case 5:
+        //            shelterPet.Add_pets(virtualPet);
+        //            virtualPet = createPet();
+
+        //            break;
+        //        case 6:
+        //            virtualPet = shelterPet.adopt_pets();
+        //            petList.Remove(virtualPet);
+
+        //            break;
+        //        case 7:           //switching pet to be robotic menu.
+
+        //            break;
+        //        case 0:
+        //            Game = false;
+
+        //            break;
+        //    }
+
+        //}
+
+
 
         public void Pet_name()
         {
@@ -101,7 +152,7 @@ namespace template_csharp_virtual_pet
 
      
 
-        public void Pet_medicine()
+        public virtual void Pet_medicine()
         {
             Console.Clear();
             Console.WriteLine("Current health: " + this.PetHealth );
@@ -126,7 +177,7 @@ namespace template_csharp_virtual_pet
             }
         }
 
-        public void Pet_interact()
+        public virtual void Pet_interact()
         {
             Console.Clear();
             Console.WriteLine("Current fun: " + this.PetFun + "Current Pet: " + this.PetNaming);
@@ -157,7 +208,7 @@ namespace template_csharp_virtual_pet
             }
         }
 
-        public void Pet_feed()
+        public virtual void Pet_feed()
         {
             Console.Clear();
             Console.WriteLine("Current hunger: " + this.PetHunger);

@@ -10,6 +10,9 @@ namespace template_csharp_virtual_pet
         private static System.Timers.Timer aTimer;
         static Pet virtualPet = new Pet();
         static shelter shelterPet = new shelter();
+        static roboticPets roboPet = new roboticPets();
+        static List<Pet> petList = new List<Pet>();
+
 
 
         static void Main(string[] args)
@@ -22,7 +25,7 @@ namespace template_csharp_virtual_pet
             Console.WriteLine("\t\t\t\t\t\tWelcome to\n\n\t\t\t\t\t\tPOKNOMMMM!!!\n\n\t\t\t\t\tForm ther very not so copyrited game...\n\t\t\t\t\tBTW there a easter egg somewhere  ");
 
             //TEXT FOR THE MEAN MENU
-            Console.WriteLine("\n\t\t\t\t\t\tENTER GAME:-Press 1\n\n\t\t\t\t\t\tEXEIT GAME:-Press 0 ");
+            Console.WriteLine("\n\t\t\t\t\tENTER GAME:-Press 1\n\n\t\t\t\t\tEXEIT GAME:-Press 0 (Why open the game just to press this right now... (；一_一) ");
             int menuInput = Convert.ToInt32(Console.ReadLine());
 
 
@@ -33,7 +36,7 @@ namespace template_csharp_virtual_pet
                     break;
 
                 case 0:
-                    exit_Game(); // EXIT THE GAME ay any time. Thinking about making a utilitie class and putting it in it.
+                    exit_Game(); 
                     break;
             }
 
@@ -56,7 +59,7 @@ namespace template_csharp_virtual_pet
 
         public static void game()
         {
-           bool Game = true;
+           bool Game = true; 
             while (Game)
             {
 
@@ -74,7 +77,7 @@ namespace template_csharp_virtual_pet
                 Console.WriteLine("Fun: " + virtualPet.PetFun);
 
 
-                string[] choice = new string[7] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to the vet", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t0.Exit game " };
+                string[] choice = new string[8] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to the vet", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t7.switch to robotic pet", "\t\t\t\t\t\t0.Exit game " };
 
                 for (int count = 0; count < choice.Length; count++)
                 {
@@ -107,15 +110,20 @@ namespace template_csharp_virtual_pet
                         break;
                     case 6:
                         virtualPet = shelterPet.adopt_pets();
-                        break;
+                        petList.Remove(virtualPet);
 
+                        break;
+                    case 7:           //switching pet to be robotic menu.
+             
+                        break;
                     case 0:
                         Game = false;
 
                         break;
                 }
-
             }
+
+         
 
             exit_Game();
         }
@@ -123,7 +131,7 @@ namespace template_csharp_virtual_pet
 
 
 
-        private static void ATimer_Elapsed(object sender, ElapsedEventArgs e) // ask if there a way to make it show in real time
+        private static void ATimer_Elapsed(object sender, ElapsedEventArgs e) // ask if there a way to make it show in real time. (Theres not  for a console app ) // bring this into pet!!!!!!!!!!
         {
             virtualPet.PetHealth--;
             virtualPet.PetHunger--;
@@ -146,3 +154,40 @@ namespace template_csharp_virtual_pet
 
     }
 }
+//bool robot = true;
+//while (robot)
+//{
+//    Console.Clear();
+//    Console.WriteLine("Robot Health: " + roboPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t Robot Name:" + virtualPet.PetNaming);
+//    Console.WriteLine("Robot Hunger: " + roboPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t Robot Species:" + virtualPet.PetSpecies);
+//    Console.WriteLine("Robot Fun: " + roboPet.PetFun);
+
+//    Console.WriteLine("\n\n\t\t\t\t\t\t1.Interact with robo pet \n\n\t\t\t\t\t\t2.Feed robo pet \n\n\t\t\t\t\t\t3.Take to the mechanic \n\n\t\t\t\t\t\t4.Put pet into shelter \n\n\t\t\t\t\t\t5.Vist the shelter");
+//    int robotInput = Convert.ToInt32(Console.ReadLine());
+
+//    switch (robotInput)
+//    {
+//        case 1:
+//            roboPet.Pet_interact();
+//            break;
+//        case 2:
+//            roboPet.Pet_feed();
+//            break;
+//        case 3:
+//            roboPet.Pet_medicine();
+//            break;
+//        case 4:
+//            shelterPet.Add_pets(roboPet);
+//            virtualPet = createPet();
+//            robot = false;
+//            break;
+//        case 5:
+//            virtualPet = shelterPet.adopt_pets();
+//            petList.Remove(virtualPet);
+//            break;
+//        case 6:
+//            robot = false;
+//            break;
+//    }
+
+//}

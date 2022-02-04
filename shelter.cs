@@ -8,9 +8,9 @@ namespace template_csharp_virtual_pet
 {
     class shelter
     {
-        List<Pet> petList = new List<Pet>();
+        static List<Pet> petList = new List<Pet>();
         static Pet virtualPet = new Pet();
-        
+
 
 
         public void Add_pets(Pet addPet)
@@ -18,14 +18,14 @@ namespace template_csharp_virtual_pet
 
 
             petList.Add(addPet);
-            
-            
+
+
 
 
 
         }
 
-        public Pet adopt_pets()
+        public  Pet adopt_pets()
         {
             Console.Clear();
 
@@ -49,7 +49,7 @@ namespace template_csharp_virtual_pet
 
             int userInput = Convert.ToInt32(Console.ReadLine());
 
-        
+
 
             switch (userInput)
             {
@@ -75,7 +75,7 @@ namespace template_csharp_virtual_pet
                     foreach (Pet pet in petList)
                     {
                         virtualPet = petList[iPet - 1];
-                        virtualPet.PetHealth += 10;
+                        virtualPet.PetHealth += 100;
                         iPet++;
 
                     }
@@ -87,14 +87,9 @@ namespace template_csharp_virtual_pet
                     break;
 
             }
-
+            
             return petList[petInput - 1];
-
-
-
         }
-
-
 
     }
 }
