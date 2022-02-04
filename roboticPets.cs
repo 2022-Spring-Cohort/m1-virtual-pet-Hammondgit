@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace template_csharp_virtual_pet
 {
@@ -10,7 +10,10 @@ namespace template_csharp_virtual_pet
     {
 
 
+        public override void Pet_menu()
+        {
 
+        }
 
 
 

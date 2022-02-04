@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace template_csharp_virtual_pet
@@ -20,8 +18,11 @@ namespace template_csharp_virtual_pet
         public double PetFun { get; set; } // Instead of using boredom, I think the user will understand fun going lower instead of bordom getting higher.
                                            // if fun is below  30 the user risk mental health
 
-        // List<Pet> petList = new List<Pet>();
-
+        static Pet virtualPet = new Pet();
+        static shelter shelterPet = new shelter();
+        static roboticPets roboPet = new roboticPets();
+        static List<Pet> petList = new List<Pet>();
+        private static Timer aTimer;
 
 
 
@@ -35,56 +36,97 @@ namespace template_csharp_virtual_pet
         }
 
 
+        public static Pet createPet()
+        {
+            Console.Clear();
+            virtualPet = new Pet();
+            virtualPet.Pet_name();
 
-        //public void Pet_menu() 
-        //{
-
-        //    string[] choice = new string[8] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to the vet", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t7.switch to robotic pet", "\t\t\t\t\t\t0.Exit game " };
-
-        //    for (int count = 0; count < choice.Length; count++)
-        //    {
-        //        Console.WriteLine(choice[count]);
-        //    }
+            virtualPet.Pet_species();
 
 
-        //    int userInput = Convert.ToInt32(Console.ReadLine());
+            return virtualPet;
+        }
 
 
-        //    switch (userInput)
-        //    {
-        //        case 1:
-        //            createPet();
-        //            break;
-        //        case 2:
-        //            Pet_interact();
-        //            break;
-        //        case 3:
-        //            Pet_feed();
-        //            break;
-        //        case 4:
-        //            Pet_medicine();
+        private static void ATimer_Elapsed(object sender, ElapsedEventArgs e) // ask if there a way to make it show in real time. (Theres not  for a console app ) // bring this into pet!!!!!!!!!!
+        {
+            virtualPet.PetHealth--;
+            virtualPet.PetHunger--;
+            virtualPet.PetFun--;
+        }
 
-        //            break;
-        //        case 5:
-        //            shelterPet.Add_pets(virtualPet);
-        //            virtualPet = createPet();
 
-        //            break;
-        //        case 6:
-        //            virtualPet = shelterPet.adopt_pets();
-        //            petList.Remove(virtualPet);
+        public virtual void Pet_menu()
+        {
+            bool Game = true;
+            while (Game)
+            {
 
-        //            break;
-        //        case 7:           //switching pet to be robotic menu.
+                aTimer = new Timer();
+                aTimer.Interval = 5000;
+                aTimer.Elapsed += ATimer_Elapsed;
+                aTimer.Enabled = true;
+                aTimer.AutoReset = true;
+                aTimer.Start();
 
-        //            break;
-        //        case 0:
-        //            Game = false;
 
-        //            break;
-        //    }
+                Console.Clear();
+                Console.WriteLine("Health: " + virtualPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t\t Name:" + virtualPet.PetNaming);
+                Console.WriteLine("Hunger: " + virtualPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t\t Species:" + virtualPet.PetSpecies);
+                Console.WriteLine("Fun: " + virtualPet.PetFun);
 
-        //}
+
+                string[] choice = new string[9] { "\t\t\t\t\t\t1.Create a Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to the vet", "\t\t\t\t\t\t5.Put pet into shelter", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t7.switch to robotic pet", "\t\t\t\t\t\t8.switch to  organic pet", "\t\t\t\t\t\t0.Exit game " };
+
+                for (int count = 0; count < choice.Length; count++)
+                {
+                    Console.WriteLine(choice[count]);
+                }
+
+
+                int userInput = Convert.ToInt32(Console.ReadLine());
+
+
+                switch (userInput)
+                {
+                    case 1:
+                        createPet();
+                        break;
+                    case 2:
+                        virtualPet.Pet_interact();
+                        break;
+                    case 3:
+                        virtualPet.Pet_feed();
+                        break;
+                    case 4:
+                        virtualPet.Pet_medicine();
+
+                        break;
+                    case 5:
+                        shelterPet.Add_pets(virtualPet);
+                        virtualPet = createPet();
+
+                        break;
+                    case 6:
+                        virtualPet = shelterPet.adopt_pets();
+                        petList.Remove(virtualPet);
+
+                        break;
+                    case 7:           //switching pet to be robotic menu.
+                        roboPet.Pet_menu();
+                        break;
+                    case 8:           //switching pet to be organic menu.
+
+                        break;
+                    case 0:
+                        Game = false;
+
+                        break;
+                }
+            }
+        }
+
 
 
 
