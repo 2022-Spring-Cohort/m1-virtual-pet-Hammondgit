@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Timers;
 using template_csharp_virtual_pet;
 
 namespace virtual_pet_tests
@@ -7,6 +8,7 @@ namespace virtual_pet_tests
     public class PetTests
     {
         private Pet testPet;
+        public static Timer aTimer;
 
         [SetUp]
         public void SetUp()
@@ -87,105 +89,105 @@ namespace virtual_pet_tests
         [Test]
         public void GetHunger_Should_Return_Initial_Hunger_Level_Of_50()
         {
-            // int testPetHunger = testPet.GetHunger();
+            double testPetHunger = testPet.PetHunger;
 
-            // Assert.Equal(50, testPetHunger);
+             Assert.Equals(50, testPetHunger);
         }
 
         [Test]
         public void Pet_Should_Have_Boredom()
         {
-            // testPet.Boredom = 100;
+             testPet.PetFun = 100;
 
-            // Assert.Equal(100, testPet.Boredom);
+             Assert.Equals(100, testPet.PetFun);
         }
 
         [Test]
         public void GetBoredom_Should_Return_Initial_Boredom_Level_Of_60()
         {
-            // int testPetBoredom = testPet.GetBoredom();
+             double testPetBoredom = testPet.PetFun;
 
-            // Assert.Equal(60, testPetBoredom);
+             Assert.Equals(60, testPetBoredom);
         }
 
         [Test]
         public void Pet_Should_Have_Health()
         {
-            // testPet.Health = 100; 
+             testPet.PetHealth = 100; 
 
-            // Assert.Equal(100, testPet.Health);
+             Assert.Equals(100, testPet.PetHealth);
         }
 
         [Test]
         public void GetHealth_Should_Return_Initial_Health_Level_Of_30()
         {
-            // int testPetHealth = testPet.GetHealth();
+             double testPetHealth = testPet.PetHealth;
 
-            // Assert.Equal(30, testPetHealth);
+             Assert.Equals(30, testPetHealth);
         }
 
         [Test]
         public void Feed_Should_Decrease_Hunger_By_40()
         {
-            // testPet.Feed();
+              testPet.Pet_feed();
 
-            // Assert.Equal(10, testPet.GetHunger());
+            Assert.Equals(10, testPet.PetHunger); 
         }
 
         [Test]
         public void SeeDoctor_Should_Increase_Health_By_30()
         {
-            // testPet.SeeDoctor();
+               testPet.Pet_medicine();
 
-            // Assert.Equal(60, testPet.GetHealth());
+               Assert.Equals(60, testPet.PetHealth); 
         }
 
         [Test]
         public void Play_Should_Increase_Hunger_By_10()
         {
-            // testPet.Play();
+            testPet.Pet_feed();
 
-            // Assert.Equal(60, testPet.GetHunger());
+            Assert.Equals(60, testPet.PetHunger); 
         }
 
         [Test]
         public void Play_Should_Decrease_Boredom_By_20()
         {
-            // testPet.Play();
+             testPet.Pet_interact();
 
-            // Assert.Equal(40, testPet.GetBoredom());
+             Assert.Equals(40, testPet.PetFun); 
         }
 
         [Test]
         public void Play_Should_Increase_Health_By_10()
         {
-            // testPet.Play();
+             testPet.Pet_medicine();
 
-            // Assert.Equal(40, testPet.GetHealth());
+             Assert.Equals(40, testPet.PetHealth);
         }
 
         [Test]
         public void Tick_Should_Increase_Hunger_By_5()
         {
-            // testPet.Tick();
+            testPet.ATimer_Elapsed(object sender, ElapsedEventArgs e);
 
-            // Assert.Equal(55, testPet.GetHunger());
+            Assert.Equals(55, testPet.PetHunger );
         }
 
         [Test]
         public void Tick_Should_Increase_Boredom_By_5()
         {
-            // testPet.Tick();
+            testPet.ATimer_Elapsed(object sender, ElapsedEventArgs e);
 
-            // Assert.Equal(65, testPet.GetBoredom());
+            Assert.Equals(65, testPet.PetFun);
         }
 
         [Test]
         public void Tick_Should_Decrease_Health_By_5()
         {
-            // testPet.Tick();
+            testPet.ATimer_Elapsed(object sender, ElapsedEventArgs e);
 
-            // Assert.Equal(25, testPet.GetHealth());
+            Assert.Equals(25, testPet.PetHealth);
         }
     }
 }
