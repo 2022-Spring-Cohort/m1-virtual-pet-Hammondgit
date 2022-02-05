@@ -19,8 +19,10 @@ namespace template_csharp_virtual_pet
        
 
         public static Pet virtualPet = new Pet();
+        public static roboticPets roboPet = new roboticPets();
+        public static organicPets OrganicPet = new organicPets();
+
         public static shelter shelterPet = new shelter();
-        static roboticPets roboPet = new roboticPets();
         public static List<Pet> petList = new List<Pet>();
         public static Timer aTimer;
 
@@ -115,10 +117,10 @@ namespace template_csharp_virtual_pet
 
                         break;
                     case 7:          
-                        roboPet.Pet_menu();
+                       roboPet.Pet_menu();
                         break;
-                    case 8:           //switching pet to be organic menu.
-
+                    case 8:
+                        OrganicPet.Pet_menu();
                         break;
                     case 0:
                         Game = false;

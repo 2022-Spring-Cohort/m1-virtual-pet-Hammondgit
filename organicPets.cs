@@ -2,33 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Timers;
 
 namespace template_csharp_virtual_pet
 {
-   public class roboticPets : Pet
+   public class organicPets : Pet
     {
-        
 
+       
         public override Pet createPet()
         {
             Console.Clear();
-            roboPet = new roboticPets();
-            roboPet.Pet_name();
+            OrganicPet = new organicPets();
+            OrganicPet.Pet_name();
 
-            roboPet.Pet_species();
+            OrganicPet.Pet_species();
 
-            roboPet.type_pet();
+            OrganicPet.type_pet();
 
-            return roboPet;
+            return OrganicPet;
         }
 
 
         public override void ATimer_Elapsed(object sender, ElapsedEventArgs e) // ask if there a way to make it show in real time. (Theres not for a console app ) 
         {
-           roboPet.PetHealth = roboPet.PetHealth - 0.5;
-           roboPet.PetHunger = roboPet.PetHunger - 0.5;
-           roboPet.PetFun = roboPet.PetFun - 5; // For balance so that every one wont just make a robot
+            OrganicPet.PetHealth = OrganicPet.PetHealth - 15;
+            OrganicPet.PetHunger = OrganicPet.PetHunger - 15;
+            OrganicPet.PetFun--; 
         }
 
         public override void Pet_menu()
@@ -38,7 +39,7 @@ namespace template_csharp_virtual_pet
             {
 
                 aTimer = new Timer();
-                aTimer.Interval = 10000; // Yes ever 10 sec status changes. Robots are op
+                aTimer.Interval = 3000; 
                 aTimer.Elapsed += ATimer_Elapsed;
                 aTimer.Enabled = true;
                 aTimer.AutoReset = true;
@@ -46,12 +47,12 @@ namespace template_csharp_virtual_pet
 
 
                 Console.Clear();
-                Console.WriteLine("Health: " + roboPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\tRobot name: " + roboPet.PetNaming);
-                Console.WriteLine("Hunger: " + roboPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\tRobot species: " + roboPet.PetSpecies);
-                Console.WriteLine("Fun: " + roboPet.PetFun + "\t\t\t\t\t\t\t\t\t\t\t\tType: " + roboPet.Type);
+                Console.WriteLine("Hearts: " + OrganicPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\tOrganic name: " + OrganicPet.PetNaming);
+                Console.WriteLine("Hunger: " + OrganicPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\tOrganic species: " + OrganicPet.PetSpecies);
+                Console.WriteLine("Fun: " + OrganicPet.PetFun + "\t\t\t\t\t\t\t\t\t\t\t\tType: " + OrganicPet.Type);
 
 
-                string[] choice = new string[9] { "\t\t\t\t\t\t1.Create a robotic Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.Feed pet", "\t\t\t\t\t\t4.Take to the mechanic", "\t\t\t\t\t\t5.Put pet into shelter - (Note this will make you create a new pet)", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t7.switch to generic pet", "\t\t\t\t\t\t8.switch to  organic pet", "\t\t\t\t\t\t0.Exit game " };
+                string[] choice = new string[9] { "\t\t\t\t\t\t1.Create a Organic Pet!", "\n\n\t\t\t\t\t\t2.Interact with pet", "\t\t\t\t\t\t3.ReEnergize pet", "\t\t\t\t\t\t4.Take to the Super vet", "\t\t\t\t\t\t5.Put pet into shelter - (Note this will make you create a new pet)", "\t\t\t\t\t\t6.Vist the shelter", "\t\t\t\t\t\t7.switch to generic pet", "\t\t\t\t\t\t8.switch to robotic pet", "\t\t\t\t\t\t0.Exit game " };
 
                 for (int count = 0; count < choice.Length; count++)
                 {
@@ -77,23 +78,21 @@ namespace template_csharp_virtual_pet
                         Pet_medicine();
                         break;
                     case 5:
-                        shelterPet.Add_pets(roboPet);
+                        shelterPet.Add_pets(OrganicPet);
                         createPet();
                         break;
                     case 6:
-                        roboPet = (roboticPets)shelterPet.adopt_pets();
-                        petList.Remove(roboPet);
-
+                        OrganicPet = (organicPets)shelterPet.adopt_pets();
+                        petList.Remove(OrganicPet);
                         break;
-                    case 7:          
+                    case 7:
                         virtualPet.Pet_menu();
                         break;
-                    case 8:           
-                        OrganicPet.Pet_menu();
+                    case 8:
+                        roboPet.Pet_name();
                         break;
                     case 0:
                         Game = false;
-
                         break;
                 }
             }
@@ -102,7 +101,7 @@ namespace template_csharp_virtual_pet
 
         public override void type_pet()
         {
-            this.Type = "Robotic";
+            this.Type = "Organic";
         }
 
 
@@ -110,8 +109,8 @@ namespace template_csharp_virtual_pet
         {
             Console.Clear();
             Console.WriteLine("Current health: " + this.PetHealth);
-            Console.WriteLine("Here a list of parts for your robotic pet");
-            string[] Meds = new string[2] { "1.Parts", "2.Go back" };
+            Console.WriteLine("Here a list of herbs for your organic pet");
+            string[] Meds = new string[2] { "1.Lavender", "2.Go back" };
 
             for (int count = 0; count < Meds.Length; count++)
             {
@@ -122,7 +121,8 @@ namespace template_csharp_virtual_pet
 
             if (input == 1)
             {
-                this.PetHealth += 60;
+                this.PetHealth += 40;
+                this.PetHunger += 5;
 
             }
             else
@@ -136,8 +136,8 @@ namespace template_csharp_virtual_pet
         {
             Console.Clear();
             Console.WriteLine("Current fun: " + this.PetFun + " Current Pet: " + this.PetNaming);
-            Console.WriteLine("Interact with your robo pet");
-            string[] Fun = new string[3] { "1.Do my Homework for me", "2.Find buried treasure", "3.Flying robo pet" };
+            Console.WriteLine("Interact organic with your pet");
+            string[] Fun = new string[3] { "1.Highfive Pet", "2.Water skiing with pet", "3.Praise the SUNNNN with pet" };
 
             for (int count = 0; count < Fun.Length; count++)
             {
@@ -148,7 +148,7 @@ namespace template_csharp_virtual_pet
 
             if (input == 1)
             {
-                this.PetFun += 5;
+                this.PetFun += 10;
 
             }
             else if (input == 2)
@@ -159,15 +159,17 @@ namespace template_csharp_virtual_pet
             else if (input == 3)
             {
                 this.PetFun += 30;
+                this.PetHunger += 10;
+                this.PetHealth += 5;
             }
         }
 
-        public override void Pet_feed()  
+        public override void Pet_feed()
         {
             Console.Clear();
             Console.WriteLine("Current hunger: " + this.PetHunger);
-            Console.WriteLine("Feed your pet scrap");
-            string[] Feed = new string[3] { "1.Copper", "2.Iron", "3.Steel" };
+            Console.WriteLine("Feed your pet fruits and vegetables");
+            string[] Feed = new string[3] { "1. Broccoli", "2. Tomato", "3.Pineapples" };
 
             for (int count = 0; count < Feed.Length; count++)
             {
@@ -178,21 +180,26 @@ namespace template_csharp_virtual_pet
 
             if (input == 1)
             {
-                this.PetHunger += 10;
+                this.PetHunger += 5;
 
             }
             else if (input == 2)
             {
-                this.PetHunger += 15;
+                this.PetHunger += 10;
 
             }
             else if (input == 3)
             {
                 this.PetHunger += 25;
-
+                this.PetHealth += 5;
+                this.PetFun += 1;
             }
 
         }
+
+
+
+
 
 
 

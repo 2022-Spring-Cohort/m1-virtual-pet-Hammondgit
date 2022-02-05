@@ -12,10 +12,6 @@ namespace template_csharp_virtual_pet
 
         static void Main(string[] args)
         {
-
-
-
-
             // Title 
             Console.WriteLine("\t\t\t\t\t\tWelcome to\n\n\t\t\t\t\t\tPOKNOMMMM!!!\n\n\t\t\t\t\tForm ther very not so copyrited game...\n\t\t\t\t\tBTW there a easter egg somewhere  ");
 
@@ -38,10 +34,6 @@ namespace template_csharp_virtual_pet
         }
 
   
-
-
-   
-
         public static void game()
         {
 
@@ -50,12 +42,6 @@ namespace template_csharp_virtual_pet
 
             exit_Game();
         }
-
-
-
-
-   
-
 
 
         static void exit_Game() 
@@ -72,40 +58,4 @@ namespace template_csharp_virtual_pet
 
     }
 }
-//bool robot = true;
-//while (robot)
-//{
-//    Console.Clear();
-//    Console.WriteLine("Robot Health: " + roboPet.PetHealth + "\t\t\t\t\t\t\t\t\t\t\t Robot Name:" + virtualPet.PetNaming);
-//    Console.WriteLine("Robot Hunger: " + roboPet.PetHunger + "\t\t\t\t\t\t\t\t\t\t\t Robot Species:" + virtualPet.PetSpecies);
-//    Console.WriteLine("Robot Fun: " + roboPet.PetFun);
 
-//    Console.WriteLine("\n\n\t\t\t\t\t\t1.Interact with robo pet \n\n\t\t\t\t\t\t2.Feed robo pet \n\n\t\t\t\t\t\t3.Take to the mechanic \n\n\t\t\t\t\t\t4.Put pet into shelter \n\n\t\t\t\t\t\t5.Vist the shelter");
-//    int robotInput = Convert.ToInt32(Console.ReadLine());
-
-//    switch (robotInput)
-//    {
-//        case 1:
-//            roboPet.Pet_interact();
-//            break;
-//        case 2:
-//            roboPet.Pet_feed();
-//            break;
-//        case 3:
-//            roboPet.Pet_medicine();
-//            break;
-//        case 4:
-//            shelterPet.Add_pets(roboPet);
-//            virtualPet = createPet();
-//            robot = false;
-//            break;
-//        case 5:
-//            virtualPet = shelterPet.adopt_pets();
-//            petList.Remove(virtualPet);
-//            break;
-//        case 6:
-//            robot = false;
-//            break;
-//    }
-
-//}
