@@ -6,26 +6,22 @@ using System.Text;
 
 namespace template_csharp_virtual_pet
 {
-    class shelter
+   public class shelter
     {
         static List<Pet> petList = new List<Pet>();
         static Pet virtualPet = new Pet();
-
+        static roboticPets roboPet = new roboticPets();
 
 
         public void Add_pets(Pet addPet)
         {
 
-
             petList.Add(addPet);
-
-
-
 
 
         }
 
-        public  Pet adopt_pets()
+        public Pet adopt_pets()
         {
             Console.Clear();
 
@@ -41,7 +37,7 @@ namespace template_csharp_virtual_pet
             foreach (Pet pet in petList)
             {
                 virtualPet = petList[I - 1];
-                Console.WriteLine(count + ". " + virtualPet.PetNaming + ": Health:" + virtualPet.PetHealth + " , Hunger:" + virtualPet.PetHunger + " , Fun:" + virtualPet.PetFun);
+                Console.WriteLine(count + ". " + virtualPet.PetNaming + ": Health:" + virtualPet.PetHealth + " , Hunger:" + virtualPet.PetHunger + " , Fun:" + virtualPet.PetFun + " type:" + virtualPet.Type);
                 count++;
                 I++;
 
@@ -87,7 +83,10 @@ namespace template_csharp_virtual_pet
                     break;
 
             }
-            
+
+
+
+
             return petList[petInput - 1];
         }
 

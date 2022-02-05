@@ -8,10 +8,7 @@ namespace template_csharp_virtual_pet
     {
         
         static Pet virtualPet = new Pet();
-        static shelter shelterPet = new shelter();
-        static roboticPets roboPet = new roboticPets();
-        static List<Pet> petList = new List<Pet>();
-        private static Timer aTimer;
+
 
         static void Main(string[] args)
         {
